@@ -1,0 +1,13 @@
+{
+	"command": "node ./server/index.js",
+	"build_path": "/Users/jamesspalding/sample-refine-appsail-test/Refine/build",
+	"stack": "node18",
+	"env_variables": {},
+	"memory": 256,
+	"scripts": {
+		"preserve": "cd client && npm run build && cd .. && node ./scripts/filesHelper.js -c ./server/ ./build/server/  && node ./scripts/filesHelper.js -c ./client/dist/ ./build/client/",
+		"postserve": "node ./scripts/filesHelper.js -d ./build/server &&  node ./scripts/filesHelper.js -d ./build/client",
+		"predeploy": "cd client && npm run build && cd .. && node ./scripts/filesHelper.js -c ./server/ ./build/server/  && node ./scripts/filesHelper.js -c ./client/dist/ ./build/client/",
+		"postdeploy": "node ./scripts/filesHelper.js -d ./build/server &&  node ./scripts/filesHelper.js -d ./build/client"
+	}
+}
